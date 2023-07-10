@@ -135,7 +135,7 @@ local function initialize()
         print('Already have touchpoint api')
     else
         print('Downloading touchpoint api...')
-        os.run({}, "pastebin get pFHeia96 touchpoint.lua")
+        os.run("pastebin get pFHeia96 touchpoint.lua")
         os.loadAPI("/touchpoint.lua")
     end
 
