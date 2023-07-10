@@ -144,7 +144,14 @@ local function initialize()
     resetMon()
     drawBorder(borderMargin, colors.green)
 
-    os.loadAPI('/touchpoint.lua')
+    --Load the api, or grab it from pastebin if we don't have it
+    if pcall(os.loadAPI('/touchpoint.lua')) then
+        print('Already have touchpoint api')
+    else
+        print('Downloading touchpoint api...')
+        os.run({}, "pastebin get pFHeia96 touchpoint.lua")
+        os.loadAPI("/touchpoint.lua")
+    end
     t = touchpoint.new(monSide)
     t:add("Toggle Reactor", nil, borderMargin + 3, mony - borderMargin - 4, (monx / 2) - 1, mony - borderMargin - 2,
         colors.red, colors.lime)
