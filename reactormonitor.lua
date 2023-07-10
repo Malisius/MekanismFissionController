@@ -131,11 +131,11 @@ local function initialize()
     borderMargin = args[1] or borderMargin
 
     --Load the api, or grab it from pastebin if we don't have it
-    if pcall(os.loadAPI('/touchpoint.lua')) then
+    if pcall(os.loadAPI, '/touchpoint.lua') then
         print('Already have touchpoint api')
     else
         print('Downloading touchpoint api...')
-        os.run("pastebin get pFHeia96 touchpoint.lua")
+        os.run({}, "pastebin get pFHeia96 touchpoint.lua")
         os.loadAPI("/touchpoint.lua")
     end
 
